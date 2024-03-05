@@ -2,9 +2,9 @@ import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
 
-df_orders = pd.read_csv('orders.csv')
-df_order_product = pd.read_csv('order_product.csv')
-df_order_review_order_item = pd.read_csv('order_review_order_item.csv')
+df_orders = pd.read_csv('./dashboard/orders.csv')
+df_order_product = pd.read_csv('./dashboard/order_product.csv')
+df_order_review_order_item = pd.read_csv('./dashboard/order_review_order_item.csv')
 st.title('Hasil Analisis Data E-commerce-public-dataset')
 df_orders['order_purchase_timestamp'] = pd.to_datetime(df_orders['order_purchase_timestamp'])
 
