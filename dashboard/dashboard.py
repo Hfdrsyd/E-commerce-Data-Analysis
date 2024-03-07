@@ -16,17 +16,17 @@ df_orders['month'] = df_orders['order_purchase_timestamp'].dt.strftime('%B')
 st.write(df_orders.head())
 
 st.markdown("## Permintaan penjualan paling banyak tiap bulan")
-st.write("Grafik Jumlah Pembelian per Bulan")
 monthly_counts = df_orders['month'].value_counts()
 st.write(monthly_counts)
 plt.bar(monthly_counts.index, monthly_counts.values, color=colors_)
 plt.xlabel('Bulan')
 plt.ylabel('Jumlah Pembelian')
+plt.title('Grafik Jumlah Pembelian per Bulan')
 plt.xticks(rotation=45)
 st.pyplot(plt)
 
 st.write("Permintaan paling banyak terjadi pada bulan Agustus dengan 10843 permintaan pembelian, diikuti Mei dengan 10573 permintaan pembelian, dan Juli dengan 10318 permintaan pembelian.")
-
+colors_ = ["#72BCD4", "#D3D3D3", "#D3D3D3", "#D3D3D3", "#D3D3D3", "#D3D3D3", "#D3D3D3", "#D3D3D3", "#D3D3D3", "#D3D3D3"]
 st.markdown("## Kategori yang paling laris dan paling tidak laris?")
 category_counts = df_order_product['product_category_name_english'].value_counts()
 
@@ -65,6 +65,7 @@ st.write("- b33fb5f691f9219b5d60d856191aea6a4    1.0 ")
 
 
 st.markdown("## RFM ANALYSIS")
+colors_ = ["#72BCD4", "#D3D3D3", "#D3D3D3", "#D3D3D3", "#D3D3D3"]
 # Plot for Recency
 plt.figure(figsize=(10, 6))
 top_5_recency = rfm_df.sort_values(by="recency", ascending=True).head(5)
